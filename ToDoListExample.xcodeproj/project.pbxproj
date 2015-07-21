@@ -16,6 +16,7 @@
 		05ED19BD1B5DB3CA000222A7 /* ToDoListExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19BC1B5DB3CA000222A7 /* ToDoListExampleTests.m */; };
 		05ED19CB1B5EEEBD000222A7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19CA1B5EEEBD000222A7 /* Task.m */; };
 		05ED19CE1B5EF20F000222A7 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19CD1B5EF20F000222A7 /* AddTaskViewController.m */; };
+		05ED19D11B5F04CA000222A7 /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19D01B5F04CA000222A7 /* TaskTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		05ED19CA1B5EEEBD000222A7 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		05ED19CC1B5EF20F000222A7 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
 		05ED19CD1B5EF20F000222A7 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
+		05ED19CF1B5F04CA000222A7 /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
+		05ED19D01B5F04CA000222A7 /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				05ED19CD1B5EF20F000222A7 /* AddTaskViewController.m */,
 				05ED19C91B5EEEBD000222A7 /* Task.h */,
 				05ED19CA1B5EEEBD000222A7 /* Task.m */,
+				05ED19CF1B5F04CA000222A7 /* TaskTableViewCell.h */,
+				05ED19D01B5F04CA000222A7 /* TaskTableViewCell.m */,
 				05ED19AA1B5DB3CA000222A7 /* Main.storyboard */,
 				05ED19AD1B5DB3CA000222A7 /* Images.xcassets */,
 				05ED19AF1B5DB3CA000222A7 /* LaunchScreen.xib */,
@@ -231,6 +236,7 @@
 			files = (
 				05ED19CE1B5EF20F000222A7 /* AddTaskViewController.m in Sources */,
 				05ED19CB1B5EEEBD000222A7 /* Task.m in Sources */,
+				05ED19D11B5F04CA000222A7 /* TaskTableViewCell.m in Sources */,
 				05ED19A91B5DB3CA000222A7 /* ViewController.m in Sources */,
 				05ED19A61B5DB3CA000222A7 /* AppDelegate.m in Sources */,
 				05ED19A31B5DB3CA000222A7 /* main.m in Sources */,

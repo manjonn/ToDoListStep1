@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AddTaskViewController.h"
 #import "Task.h"
+#import "TaskTableViewCell.h"
 
 @interface ViewController ()<UITableViewDataSource,UITextFieldDelegate,UITableViewDelegate,AddTaskViewControllerDelegate>{
     
@@ -45,6 +46,17 @@
     
 }
 
+-(CGFloat)estimatedHeightForRow:(NSInteger)row{
+    
+    CGFloat ht=50;
+    Task *task=self.tasks[row];
+    if (task.taskDescription.length>0) {
+        CGRect rect=[task.taskDescription boundingRectWithSize:CGSizeMake(self.view.frame.size.width-30, INFINITY) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
+        ht+=rect.size.height+10;
+    }
+    return ht;
+}
+
 #pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -52,13 +64,24 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    TaskTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     Task *task=self.tasks[indexPath.row];
-    cell.textLabel.text=task.taskName;
-    cell.detailTextLabel.text=[_dateFormatter stringFromDate:task.deadLine];
+    cell.taskNameLabel.text=task.taskName;
+    cell.taskDescriptionLabel.text=task.taskDescription;
+    cell.deadLineLabel.text=[_dateFormatter stringFromDate:task.deadLine];
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [self estimatedHeightForRow:indexPath.row];
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return [self estimatedHeightForRow:indexPath.row];
+    
+}
 
 
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{

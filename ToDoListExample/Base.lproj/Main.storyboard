@@ -17,30 +17,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qrT-zm-Xh9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qrT-zm-Xh9">
                                 <rect key="frame" x="0.0" y="56" width="600" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Bp0-qJ-8e7" detailTextLabel="Gay-Dr-hqi" style="IBUITableViewCellStyleSubtitle" id="9TD-p8-mO4">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="82" id="9TD-p8-mO4" customClass="TaskTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9TD-p8-mO4" id="3Oc-Qb-ism">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bp0-qJ-8e7">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCL-S6-p6q">
+                                                    <rect key="frame" x="8" y="8" width="584" height="32.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-ln-yqG">
+                                                    <rect key="frame" x="222" y="61" width="156" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="156" id="Npa-Ss-j2P"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gay-Dr-hqi">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stx-a3-U2I">
+                                                    <rect key="frame" x="8" y="37.5" width="584" height="6"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JEv-ln-yqG" secondAttribute="bottom" constant="-11.5" id="6Jy-6J-SN7"/>
+                                                <constraint firstItem="ZCL-S6-p6q" firstAttribute="centerX" secondItem="3Oc-Qb-ism" secondAttribute="centerX" id="Bpt-gR-iKN"/>
+                                                <constraint firstItem="JEv-ln-yqG" firstAttribute="top" secondItem="Stx-a3-U2I" secondAttribute="bottom" constant="18" id="Eew-gX-5o6"/>
+                                                <constraint firstItem="ZCL-S6-p6q" firstAttribute="leading" secondItem="Stx-a3-U2I" secondAttribute="leading" id="IHu-PG-OeD"/>
+                                                <constraint firstItem="Stx-a3-U2I" firstAttribute="centerX" secondItem="JEv-ln-yqG" secondAttribute="centerX" id="KHU-M4-xuP"/>
+                                                <constraint firstItem="ZCL-S6-p6q" firstAttribute="top" secondItem="3Oc-Qb-ism" secondAttribute="topMargin" id="O1W-9m-1t0"/>
+                                                <constraint firstItem="Stx-a3-U2I" firstAttribute="centerY" secondItem="3Oc-Qb-ism" secondAttribute="centerY" id="Ox8-cc-cWc"/>
+                                                <constraint firstItem="ZCL-S6-p6q" firstAttribute="trailing" secondItem="Stx-a3-U2I" secondAttribute="trailing" id="P4f-6T-Xqr"/>
+                                                <constraint firstItem="JEv-ln-yqG" firstAttribute="top" secondItem="ZCL-S6-p6q" secondAttribute="bottom" constant="20" id="WGF-Qn-JSz"/>
+                                                <constraint firstItem="ZCL-S6-p6q" firstAttribute="leading" secondItem="3Oc-Qb-ism" secondAttribute="leadingMargin" id="bSo-1G-sYG"/>
+                                                <constraint firstItem="Stx-a3-U2I" firstAttribute="top" secondItem="3Oc-Qb-ism" secondAttribute="topMargin" constant="18" id="nfN-Zg-mDA"/>
+                                                <constraint firstItem="Stx-a3-U2I" firstAttribute="top" secondItem="ZCL-S6-p6q" secondAttribute="bottom" constant="-3" id="oCe-AK-jiq"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Bpt-gR-iKN"/>
+                                                    <exclude reference="IHu-PG-OeD"/>
+                                                    <exclude reference="O1W-9m-1t0"/>
+                                                    <exclude reference="P4f-6T-Xqr"/>
+                                                    <exclude reference="bSo-1G-sYG"/>
+                                                    <exclude reference="KHU-M4-xuP"/>
+                                                    <exclude reference="Ox8-cc-cWc"/>
+                                                    <exclude reference="nfN-Zg-mDA"/>
+                                                    <exclude reference="oCe-AK-jiq"/>
+                                                    <exclude reference="6Jy-6J-SN7"/>
+                                                    <exclude reference="Eew-gX-5o6"/>
+                                                    <exclude reference="WGF-Qn-JSz"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deadLineLabel" destination="JEv-ln-yqG" id="ik9-1O-S99"/>
+                                            <outlet property="taskDescriptionLabel" destination="Stx-a3-U2I" id="KjD-rh-SDi"/>
+                                            <outlet property="taskNameLabel" destination="ZCL-S6-p6q" id="uNz-x5-5Ed"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
