@@ -7,10 +7,18 @@
 //
 
 #import "ViewController.h"
+#import "AddTaskViewController.h"
+#import "Task.h"
 
-@interface ViewController ()<UITableViewDataSource>
+@interface ViewController ()<UITableViewDataSource,UITextFieldDelegate,UITableViewDelegate,AddTaskViewControllerDelegate>{
+    
+    NSInteger editingRow;
+    NSDateFormatter *_dateFormatter;
+}
 
-@property(nonatomic,copy)NSArray *tasks;
+@property(nonatomic,strong)NSMutableArray *tasks;
+@property (weak, nonatomic) IBOutlet UITableView *taskTableView;
+@property (weak, nonatomic) IBOutlet UITextField *taskTextField;
 
 @end
 
@@ -18,13 +26,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tasks=@[@"Learn about Buttons",@"Write code for calculator"];
+    self.tasks=[NSMutableArray array];
+    editingRow=-1;
+    _dateFormatter=[NSDateFormatter new];
+    [_dateFormatter setDateStyle:NSDateFormatterLongStyle];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    AddTaskViewController *addTaskViewController=segue.destinationViewController;
+    addTaskViewController.delegate=self;
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -35,9 +53,71 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text=self.tasks[indexPath.row];
+    Task *task=self.tasks[indexPath.row];
+    cell.textLabel.text=task.taskName;
+    cell.detailTextLabel.text=[_dateFormatter stringFromDate:task.deadLine];
     return cell;
 }
 
+
+
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    __weak typeof(self) weakself=self;
+    
+    UITableViewRowAction *deleteAction=[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        [weakself.tasks removeObjectAtIndex:indexPath.row];
+        [weakself.taskTableView reloadData];
+        
+    }];
+    
+    UITableViewRowAction *editAction=[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        editingRow=indexPath.row;
+        weakself.taskTextField.text=weakself.tasks[indexPath.row];
+        [weakself.taskTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        
+    }];
+    
+    editAction.backgroundColor=[UIColor orangeColor]; 
+    
+    NSArray *actions=@[deleteAction,editAction];
+    
+    return actions;
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+#pragma mark - UITextFieldDelegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    if (textField.text.length==0) {
+        return NO;
+    }
+    NSLog(@"editing row %ld",editingRow);
+    [textField resignFirstResponder];
+    if (editingRow!=-1) {
+        [self.tasks replaceObjectAtIndex:editingRow withObject:textField.text];
+        editingRow=-1;
+    }else{
+        [self.tasks addObject:textField.text];
+    }
+    
+    textField.text=@"";
+    [self.taskTableView reloadData];
+    return YES;
+    
+}
+
+#pragma mark - AddTaskViewControllerDelegate
+
+-(void)addTask:(Task *)task{
+    [self.tasks addObject:task];
+    [self.taskTableView reloadData];
+}
 
 @end

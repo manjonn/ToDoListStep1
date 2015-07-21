@@ -14,6 +14,8 @@
 		05ED19AE1B5DB3CA000222A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05ED19AD1B5DB3CA000222A7 /* Images.xcassets */; };
 		05ED19B11B5DB3CA000222A7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ED19AF1B5DB3CA000222A7 /* LaunchScreen.xib */; };
 		05ED19BD1B5DB3CA000222A7 /* ToDoListExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19BC1B5DB3CA000222A7 /* ToDoListExampleTests.m */; };
+		05ED19CB1B5EEEBD000222A7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19CA1B5EEEBD000222A7 /* Task.m */; };
+		05ED19CE1B5EF20F000222A7 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19CD1B5EF20F000222A7 /* AddTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		05ED19B61B5DB3CA000222A7 /* ToDoListExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05ED19BB1B5DB3CA000222A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05ED19BC1B5DB3CA000222A7 /* ToDoListExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListExampleTests.m; sourceTree = "<group>"; };
+		05ED19C91B5EEEBD000222A7 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		05ED19CA1B5EEEBD000222A7 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		05ED19CC1B5EF20F000222A7 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		05ED19CD1B5EF20F000222A7 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,10 @@
 				05ED19A51B5DB3CA000222A7 /* AppDelegate.m */,
 				05ED19A71B5DB3CA000222A7 /* ViewController.h */,
 				05ED19A81B5DB3CA000222A7 /* ViewController.m */,
+				05ED19CC1B5EF20F000222A7 /* AddTaskViewController.h */,
+				05ED19CD1B5EF20F000222A7 /* AddTaskViewController.m */,
+				05ED19C91B5EEEBD000222A7 /* Task.h */,
+				05ED19CA1B5EEEBD000222A7 /* Task.m */,
 				05ED19AA1B5DB3CA000222A7 /* Main.storyboard */,
 				05ED19AD1B5DB3CA000222A7 /* Images.xcassets */,
 				05ED19AF1B5DB3CA000222A7 /* LaunchScreen.xib */,
@@ -219,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05ED19CE1B5EF20F000222A7 /* AddTaskViewController.m in Sources */,
+				05ED19CB1B5EEEBD000222A7 /* Task.m in Sources */,
 				05ED19A91B5DB3CA000222A7 /* ViewController.m in Sources */,
 				05ED19A61B5DB3CA000222A7 /* AppDelegate.m in Sources */,
 				05ED19A31B5DB3CA000222A7 /* main.m in Sources */,
@@ -418,6 +430,7 @@
 				05ED19C21B5DB3CA000222A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05ED19C31B5DB3CA000222A7 /* Build configuration list for PBXNativeTarget "ToDoListExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +439,7 @@
 				05ED19C51B5DB3CA000222A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
