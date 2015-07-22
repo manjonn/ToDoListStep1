@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    NSArray *vlConstraints=[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_taskNameLabel(15)][_taskDescriptionLabel][_deadLineLabel(15)]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_taskNameLabel,_taskDescriptionLabel,_deadLineLabel)];
+    NSArray *vlConstraints=[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_taskNameLabel][_taskDescriptionLabel][_deadLineLabel]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_taskNameLabel,_taskDescriptionLabel,_deadLineLabel)];
     NSArray *tnlHCons=[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_taskNameLabel]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_taskNameLabel)];
     NSArray *tdlHCons=[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_taskDescriptionLabel]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_taskDescriptionLabel)];
     NSArray *dllHCons=[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_deadLineLabel]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_deadLineLabel)];

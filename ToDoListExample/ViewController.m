@@ -97,9 +97,11 @@
     UITableViewRowAction *editAction=[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         
         editingRow=indexPath.row;
-        weakself.taskTextField.text=weakself.tasks[indexPath.row];
-        [weakself.taskTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        
+        UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AddTaskViewController *addTaskViewController=[storyboard instantiateViewControllerWithIdentifier:@"AddTaskViewController"];
+        addTaskViewController.task=self.tasks[indexPath.row];
+        addTaskViewController.delegate=self;
+        [self.navigationController pushViewController:addTaskViewController animated:YES];
     }];
     
     editAction.backgroundColor=[UIColor orangeColor]; 
@@ -141,6 +143,12 @@
 -(void)addTask:(Task *)task{
     [self.tasks addObject:task];
     [self.taskTableView reloadData];
+}
+
+-(void)refreshTasks{
+    
+    [self.taskTableView reloadData];
+    
 }
 
 @end

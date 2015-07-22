@@ -27,6 +27,13 @@
     [super viewDidLoad];
     _dateFormatter=[NSDateFormatter new];
     [_dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    if (self.task) {
+        self.taskNameTextField.text=_task.taskName;
+        self.taskDescriptionTextView.text=_task.taskDescription;
+        self.datePicker.date=_datePicker.date;
+        [self.dateButton setTitle:[_dateFormatter stringFromDate:_task.deadLine] forState:UIControlStateNormal];
+
+    }
     
     // Do any additional setup after loading the view.
 }
@@ -35,6 +42,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)setTask:(Task *)task{
+    _task=task;
+    self.taskNameTextField.text=_task.taskName;
+    self.taskDescriptionTextView.text=_task.taskDescription;
+    self.datePicker.date=_datePicker.date;
+    [self.dateButton setTitle:[_dateFormatter stringFromDate:_task.deadLine] forState:UIControlStateNormal];
+}
+
 - (IBAction)selectDate:(UIButton *)sender {
     if ([self.taskNameTextField isFirstResponder]) {
         if (self.taskNameTextField.text.length==0) {
@@ -54,13 +70,23 @@
 }
 - (IBAction)save:(UIButton *)sender {
     
-    Task *task=[[Task alloc]init];
-    task.taskName=self.taskNameTextField.text;
-    task.taskDescription=self.taskDescriptionTextView.text;
-    task.deadLine=self.datePicker.date;
-    
-    if ([self.delegate respondsToSelector:@selector(addTask:)]) {
-        [self.delegate addTask:task];
+    if (!self.task) {
+        Task *task=[[Task alloc]init];
+        task.taskName=self.taskNameTextField.text;
+        task.taskDescription=self.taskDescriptionTextView.text;
+        task.deadLine=self.datePicker.date;
+        
+        if ([self.delegate respondsToSelector:@selector(addTask:)]) {
+            [self.delegate addTask:task];
+        }
+    }else{
+        self.task.taskName=self.taskNameTextField.text;
+        self.task.taskDescription=self.taskDescriptionTextView.text;
+        self.task.deadLine=self.datePicker.date;
+        if ([self.delegate respondsToSelector:@selector(refreshTasks)]) {
+            [self.delegate refreshTasks];
+        }
+      
     }
     
     [self.navigationController popViewControllerAnimated:YES];
